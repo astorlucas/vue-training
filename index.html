@@ -1,7 +1,18 @@
 <div id='pepe'>
   <h1>{{ binding }}</h1>
   <input type="text" v-model='binding'><br>
-  <input type="checkbox" value='la opción 1' v-model='opciones'>
+  <input type="checkbox" value='woof' v-model='opciones'>Sonido de perro<br>
+  <input type="checkbox" value='miau' v-model='opciones'>Sonido de gato<br>
+  <input type="checkbox" value='tweet' v-model='opciones'>Sonido de pajaro<br>
+  <input type="checkbox" value='perro' v-model=animales>animal 1 
+  <input type="checkbox" value='gato' v-model=animales>animal 2 
+   <input type="checkbox" value='pajaro' v-model=animales>animal 3 
+  <ul>
+    <li v-for='(animal, i) in animales'>
+       El {{ animal }} hace el sonido {{ opciones[i] }}
+    </li>
+   
+  </ul>
   <p>Usted seleccionó {{opciones.join(', ')}}</p>
   <pre>{{$data}}</pre>
 </div>
