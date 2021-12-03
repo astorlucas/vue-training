@@ -1,6 +1,8 @@
 new Vue({
 	el: '#pepe',
   data: {
-  	binding: 'Texto ejemplo'
+  	binding: 'Texto ejemplo',
+    opciones:[],
+    animales:[]
   }
 });
