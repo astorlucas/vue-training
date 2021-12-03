@@ -4,5 +4,10 @@ new Vue({
   	binding: 'Texto ejemplo',
     opciones:[],
     animales:[]
+  },
+  methods:{
+  	miFuncion:function(){
+    	return true;
+    }
   }
 });
