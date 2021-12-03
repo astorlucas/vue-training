@@ -1,5 +1,7 @@
 <div id='pepe'>
   <h1>{{ binding }}</h1>
-  <input type="text" v-model='binding'>
+  <input type="text" v-model='binding'><br>
+  <input type="checkbox" value='la opción 1' v-model='opciones'>
+  <p>Usted seleccionó {{opciones.join(', ')}}</p>
   <pre>{{$data}}</pre>
 </div>
