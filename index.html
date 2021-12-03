@@ -6,7 +6,8 @@
   <input type="checkbox" value='tweet' v-model='opciones'>Sonido de pajaro<br>
   <input type="checkbox" value='perro' v-model=animales>animal 1 
   <input type="checkbox" value='gato' v-model=animales>animal 2 
-   <input type="checkbox" value='pajaro' v-model=animales>animal 3 
+   <input type="checkbox" value='pajaro' v-model=animales>animal 3 <br>
+   <h1>{{ miFuncion() }}</h1>
   <ul>
     <li v-for='(animal, i) in animales'>
        El {{ animal }} hace el sonido {{ opciones[i] }}
