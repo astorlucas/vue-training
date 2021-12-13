@@ -1,13 +1,11 @@
-new Vue({
-	el: '#pepe',
-  data: {
-  	binding: 'Texto ejemplo',
-    opciones:[],
-    animales:[]
-  },
-  methods:{
-  	miFuncion:function(){
-    	return true;
+const app = Vue.createApp({
+    data() {
+        return {
+            msg: 'test vue 3',
+            pp: {
+                nombre: 'soy nombre',
+                edad: 22
+            }
+        }
     }
-  }
-});
+}).mount('#app');
