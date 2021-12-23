@@ -8,10 +8,14 @@ const app = Vue.createApp({
         <div v-else>
             No es par   
         </div>
+        <div>
+            {{charla[contador]}}
+        </div>
     `,
     data() {
         return {
-            contador: 0
+            contador: 0,
+            charla: ["hola", "como", "estas", "bebe", "?"]
         }
     },
     methods: {
