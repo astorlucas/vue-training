@@ -1,7 +1,10 @@
 const app = Vue.createApp({
     template: `
-        <button v-on:mousemove="increment()">Incrementar contador</button>
+        <button v-on:click="increment()">Incrementar contador</button>
         <p>{{contador}}</p>
+        <div v-if="contador % 2 === 0">
+            Es par
+        </div>
     `,
     data() {
         return {
