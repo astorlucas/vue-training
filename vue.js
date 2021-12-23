@@ -2,8 +2,11 @@ const app = Vue.createApp({
     template: `
         <button v-on:click="increment()">Incrementar contador</button>
         <p>{{contador}}</p>
-        <div v-if="contador % 2 === 0">
+        <div v-if="esPar(contador)">
             Es par
+        </div>
+        <div v-else>
+            No es par   
         </div>
     `,
     data() {
@@ -14,6 +17,9 @@ const app = Vue.createApp({
     methods: {
         increment() {
             this.contador += 1;
+        },
+        esPar(num) {
+            return num % 2 === 0;
         }
     }
 }).mount('#app');
