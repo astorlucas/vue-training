@@ -1,11 +1,16 @@
 const app = Vue.createApp({
+    template: `
+        <button v-on:mousemove="increment()">Incrementar contador</button>
+        <p>{{contador}}</p>
+    `,
     data() {
         return {
-            msg: 'test vue 3',
-            pp: {
-                nombre: 'soy nombre',
-                edad: 22
-            }
+            contador: 0
+        }
+    },
+    methods: {
+        increment() {
+            this.contador += 1;
         }
     }
 }).mount('#app');
