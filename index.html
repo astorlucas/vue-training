@@ -11,8 +11,16 @@
 
 <body>
     <div id="app">
+        <div>
+            <label for="tareas">Tareas</label>
+            <input type="text" id="tarea" va-model="valor">
+            <button v-on:click="agregarTarea">Agregar tarea</button>
+        </div>
+        <ul>
+            <li v-for="tarea in tareas">{{ tarea }}</li>
+        </ul>
     </div>
-    <script src="vue.js"></script>
+    <script src="app-vuejs.js"></script>
 </body>
 
 </html>
