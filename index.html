@@ -5,22 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vue training</title>
-    <script src="https://unpkg.com/vue@next"></script>
+    <title>Listado de útiles</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 
 <body>
-    <div id="app">
-        <div>
-            <label for="tareas">Tareas</label>
-            <input type="text" id="tarea" v-model="valor">
-            <button v-on:click="agregarTarea">Agregar tarea</button>
-        </div>
+    <div id="lista-compras">
+        <h1>SOY UN HEADER</h1>
+        <input type="text" placeholder="agregar item" v-model="newUtil">
+        <button class="btn btn-primary" @click="utiles.push(newUtil)">Agregar elemento</button>
         <ul>
-            <li v-for="tarea in tareas">{{ tarea }}</li>
+            <li v-for="util in utiles">{{ util }}</li>
         </ul>
     </div>
-    <script src="app-vuejs.js"></script>
+    <script src="vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 
 </html>
