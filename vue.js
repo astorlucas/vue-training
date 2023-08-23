@@ -2,16 +2,24 @@ const app = Vue.createApp({
     data() {
         return {
             contador: 0,
-            utiles: ["10 cuadernos", "15 lapices", "3 mujeres hermosas"],
-            newUtil: ''
+            utiles: [
+            
+            //"10 cuadernos", 
+            //"15 lapices", 
+            //"3 mujeres hermosas"
+        ],
+            newUtil: '',
+            estado: 'default'
         }
     },
     methods: {
-        increment() {
-            this.contador += 1;
+        addElement() {
+            this.utiles.push(this.newUtil)
+            this.newUtil = ''
         },
-        esPar(num) {
-            return num % 2 === 0;
+        cambiarEstado(newState) {
+            this.estado = newState,
+            this.newUtil = '' 
         }
     }
 }).mount('#lista-compras');
