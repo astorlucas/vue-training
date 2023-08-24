@@ -1,6 +1,6 @@
 <template>
   <MyButton color="white" background="darkslateblue" :disabled="!valid" />
-  <MyInput />
+  <MyInput name="Usuario mi chico"/>
 </template>
 
 <script>
