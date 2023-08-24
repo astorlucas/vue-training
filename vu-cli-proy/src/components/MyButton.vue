@@ -1,0 +1,41 @@
+<template>
+  <button :style="{ background, color }" :disabled="disabled" >Button</button>
+</template>
+
+<script>
+export default {
+  name: "MyButton",
+  props: {
+    color: {
+      type: String
+    },
+    background: {
+      type: String
+    },
+    disabled: {
+      type: Boolean
+    },
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+button:disabled {
+  opacity: 0.5;
+}
+button {
+  background: none;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+
+  filter: brightness(150%)
+}
+</style>
