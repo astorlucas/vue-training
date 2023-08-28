@@ -1,7 +1,10 @@
 <template>
-  <div>
-  <label :for="name">{{ name }}</label>
-    <input type="text" />
+  <div class="input-wrapper">
+    <div class="label">
+      <label :for="name">{{ name }}</label>
+      <div class="error">{{ error }}</div>
+    </div>
+    <input :id="name" :type="type" :value="value" @input="input"/>
   </div>
 </template>
 
@@ -12,18 +15,60 @@ export default {
     name: {
       type: String,
       required: true
+    },
+    rules: {
+      type: Object
+    },
+    value: {
+      type: String
+    },
+    type: {
+      type: String
+    }
+  },
+  computed: {
+    error() {
+      
+      return this.validar(this.value);
+    }
+  },
+  methods: {
+    validar(value){
+      if (this.rules.required && !value) {
+        return 'REQUERIDO'
+      }
+      if (this.rules.required && value.length < this.rules.min) {
+        return `Debe ingresar al menos ${this.rules.min}`
+      }
+    },
+    input($evt){
+      this.$emit('update', {
+        value: $evt.target.value,
+        name: this.name,
+        valid: this.validar($evt.target.value) ? false : true
+      });
     }
   }
-};
+}
 </script>
 
 
 <style scoped>
-div {
+.input-wrapper {
   display: flex;
   flex-direction: column;
 }
-input{
+
+.error {
+  color: red;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
   background: none;
   color: black;
   border: 1px solid silver;

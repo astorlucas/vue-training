@@ -1,6 +1,24 @@
 <template>
-  <MyButton color="white" background="darkslateblue" :disabled="!valid" />
-  <MyInput name="Usuario mi chico"/>
+  <form @submit.prevent="enviar" class="form">
+  <MyButton 
+    color="white" 
+    background="darkslateblue" 
+    :disabled="!valid" 
+  />
+  <MyInput 
+    name="Usuario" 
+    :rules="{ required: true, min: 33 }" 
+    :value="usuario.value"
+    @update="update" 
+  />
+  <MyInput 
+    name="Password"
+    :rules="{ required: true, min: 2 }" 
+    :value="password.value" 
+    @update="update"
+    type="password"
+  />
+</form>
 </template>
 
 <script>
@@ -14,16 +32,46 @@ export default {
     MyButton,
     MyInput
   },
-  data(){
+  data() {
     return {
-      valid: true
+      usuario: {
+        value: '',
+        valid: false
+      },
+      password: {
+        value: '',
+        valid: false
+      }
+    }
+  },
+  computed: {
+    valid(){
+      return this.usuario.valid && this.password.valid
+    }
+  },
+  methods: {
+    enviar(){
+      console.log('Enviar');
+
+      //Codigo para validar el formulario
+    },
+    update(payload){
+      this[payload.name.toLowerCase()] = {
+        value: payload.value,
+        valid: payload.valid
+      };
     }
   }
 }
 </script>
 
 <style>
-body{
+body {
   font-family: 'Times New Roman', Times, serif;
+}
+
+.form {
+  max-width: 400px;
+  width: 50%;
 }
 </style>
