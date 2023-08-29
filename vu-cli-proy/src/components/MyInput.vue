@@ -38,7 +38,7 @@ export default {
         return 'REQUERIDO'
       }
       if (this.rules.required && value.length < this.rules.min) {
-        return `Debe ingresar al menos ${this.rules.min}`
+        return `Debe ingresar al menos ${this.rules.min} caracteres`
       }
     },
     input($evt){
