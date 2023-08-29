@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,12 +13,12 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="skeleton.css">
   </head>
 
   <body>
     <div class="container">
-      <div id="lista-compras">
+      <div id="app">
         <div>
             <h1>SOY UN HEADER</h1>
             <button class="btn btn-primary" v-if="estado === 'default'" @click="cambiarEstado('edit')">
@@ -35,9 +36,7 @@
             />
             <button :disabled="newUtil.length === 0" class="btn btn-primary" @click="addElement">Guardar</button>
             <ul>
-            <li v-for="util in listaRever" 
-                :class="{tachado : util.comprado}"
-                @click="comprar(util)">{{ util.util }}</li>
+            <li v-for="util in utiles">{{ util }}</li>
             </ul>
             <p v-if="utiles.length === 0">No existen elementos en la lista</p>
         </div>

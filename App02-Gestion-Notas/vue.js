@@ -37,5 +37,5 @@ const app = Vue.createApp({
             util.comprado = !util.comprado
         }
     }
-}).mount('#lista-compras');
+}).mount('#app');
 
