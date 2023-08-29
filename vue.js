@@ -3,23 +3,38 @@ const app = Vue.createApp({
         return {
             contador: 0,
             utiles: [
-            
-            //"10 cuadernos", 
-            //"15 lapices", 
-            //"3 mujeres hermosas"
+            {
+                util: '1 cosa',
+                comprado: true
+            },
+            {
+                util: '1 Avril',
+                comprado: false
+            }
         ],
             newUtil: '',
             estado: 'default'
         }
     },
+    computed: {
+        listaRever() {
+            return this.utiles.slice(0).reverse()
+        }
+    },
     methods: {
         addElement() {
-            this.utiles.push(this.newUtil)
+            this.utiles.push({
+                util: this.newUtil,
+                comprado: false
+            })
             this.newUtil = ''
         },
         cambiarEstado(newState) {
             this.estado = newState,
             this.newUtil = '' 
+        },
+        comprar(util){
+            util.comprado = !util.comprado
         }
     }
 }).mount('#lista-compras');

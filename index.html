@@ -12,6 +12,7 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="main.css">
   </head>
 
   <body>
@@ -34,7 +35,9 @@
             />
             <button :disabled="newUtil.length === 0" class="btn btn-primary" @click="addElement">Guardar</button>
             <ul>
-            <li v-for="util in utiles">{{ util }}</li>
+            <li v-for="util in listaRever" 
+                :class="{tachado : util.comprado}"
+                @click="comprar(util)">{{ util.util }}</li>
             </ul>
             <p v-if="utiles.length === 0">No existen elementos en la lista</p>
         </div>
