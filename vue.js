@@ -22,5 +22,5 @@ const app = Vue.createApp({
             this.newUtil = '' 
         }
     }
-}).mount('#lista-compras');
+}).mount('#app');
 

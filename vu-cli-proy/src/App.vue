@@ -1,77 +1,85 @@
 <template>
-  <form @submit.prevent="enviar" class="form">
-  <MyButton 
-    color="white" 
-    background="darkslateblue" 
-    :disabled="!valid" 
-  />
-  <MyInput 
-    name="Usuario" 
-    :rules="{ required: true, min: 33 }" 
-    :value="usuario.value"
-    @update="update" 
-  />
-  <MyInput 
-    name="Password"
-    :rules="{ required: true, min: 2 }" 
-    :value="password.value" 
-    @update="update"
-    type="password"
-  />
-</form>
+  <div id="app">
+    <h3>{{ titulo }}</h3>
+    <div class="form">
+      <div class="form-group">
+        <label>Títlo</label>
+        <input class="form-control" type="text" v-model="nota.titulo">
+      </div>
+      <div class="form-group">
+        <label>Texto</label>
+        <textarea class="form-control" v-model="nota.texto"></textarea>
+      </div>
+      <button class="btn btn-primary" @click="agregarNota">Enviar</button>
+    </div>
+    <div class="col-sm-12">
+      <!-- SE AGREGA ESE :KEY PARA EL FOR PORQUE LO PIDE -->
+      <div class="col-sm-4 nota" v-for="(nota, index) in notas" :key="nota.titulo">
+        <div class="card">
+          <div class="card-block">
+            <div class="card-title">{{ nota.titulo }}</div>
+            <div class="card-subtitle mb-2 text-muted">{{ nota.fecha }}</div>
+            <div class="card-text">{{ nota.texto }}</div>
+          </div>
+          <button class="close" @click="eliminarNota(index)">&times;</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import MyButton from './components/MyButton.vue'
-import MyInput from './components/MyInput.vue'
 
 
 export default {
-  name: 'App',
-  components: {
-    MyButton,
-    MyInput
-  },
+  name: 'app',
   data() {
     return {
-      usuario: {
-        value: '',
-        valid: false
+      titulo: 'Gestión de notas',
+      nota: {
+        titulo: '',
+        texto: ''
       },
-      password: {
-        value: '',
-        valid: false
-      }
-    }
-  },
-  computed: {
-    valid(){
-      return this.usuario.valid && this.password.valid
+      notas: [
+        {
+          titulo: 'Ir al cine',
+          texto: 'Examinar las peliculas porno en estreno',
+          fecha: new Date(Date.now()).toLocaleString()
+        }
+      ]
     }
   },
   methods: {
-    enviar(){
-      console.log('Enviar');
-
-      //Codigo para validar el formulario
+    agregarNota: function () {
+      console.log(this.notas)
+      let { texto, titulo } = this.nota;
+      this.notas.push({
+        texto,
+        titulo,
+        fecha: new Date(Date.now()).toLocaleString()
+      })
     },
-    update(payload){
-      this[payload.name.toLowerCase()] = {
-        value: payload.value,
-        valid: payload.valid
-      };
+    eliminarNota: function (index) {
+      this.notas.splice(index, 1);
     }
   }
 }
 </script>
 
 <style>
-body {
-  font-family: 'Times New Roman', Times, serif;
+.form {
+  text-align: left;
 }
 
-.form {
-  max-width: 400px;
-  width: 50%;
+.card {
+  text-align: left;
+  border: 1px solid #2c3e50;
+  border-radius: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.nota {
+  padding: 5px;
 }
 </style>
