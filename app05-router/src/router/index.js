@@ -27,9 +27,9 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/ContactView.vue"),
   },
   {
-    path: '/users/:id',
-    name: 'users',
-    component: UsersView
+    path: "/users/:id",
+    name: "users",
+    component: UsersView,
   },
   {
     path: "/login",
@@ -49,6 +49,10 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/SignUpView.vue"),
+  },
+  {
+    path: "/register",
+    redirect: "signup",
   },
 ];
 
